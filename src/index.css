@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.container {
+  width: 400px;
+}
