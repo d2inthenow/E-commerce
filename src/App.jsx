@@ -1,13 +1,18 @@
-import { useState } from "react";
 import "./App.css";
-import "../src/components/Header";
 import Header from "./components/Header";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from "./components/Pages/Home";
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <Header />
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path={"/"} exact={true} element={<Home />} />
+          {/* <Route path="/order-tracking" element={<About />} />
+          <Route path="/help-center" element={<HelpCenter />} /> */}
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
