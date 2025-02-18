@@ -9,7 +9,7 @@ const Search = () => {
       <input
         type="text"
         placeholder="Search product here....."
-        className="w-full h-[45px] focus:outline-none bg-inherit p-2 text-[15px]"
+        className="w-full h-[45px]  focus:outline-none bg-inherit p-2 text-[15px]"
       />
       <Button
         variant="contained"
