@@ -120,20 +120,6 @@ const Navigation = () => {
                         </Button>
                       </Link>
                     </li>
-                    <li className="list-none w-full">
-                      <Link to="/" className="w-full">
-                        <Button className="!text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !rounded-none">
-                          Boys
-                        </Button>
-                      </Link>
-                    </li>
-                    <li className="list-none w-full">
-                      <Link to="/" className="w-full">
-                        <Button className="!text-[rgba(0,0,0,0.8)] w-full !text-left !justify-start !rounded-none">
-                          Girls
-                        </Button>
-                      </Link>
-                    </li>
                   </ul>
                 </div>
               </li>
@@ -210,7 +196,7 @@ const Navigation = () => {
             </ul>
           </div>
           <div className="col_3 w-[20%]">
-            <p className="text-[14px] font-[500] flex items-center gap-3 mb-0 mt-0 ">
+            <p className="text-[14px] font-[500] flex items-center gap-2 mb-0 mt-0 ">
               <BsFillRocketTakeoffFill className="text-[18px]" /> Free
               International Delivery
             </p>
