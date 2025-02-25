@@ -17,6 +17,16 @@ body {
   font-family: "Montserrat", serif !important;
 }
 
+::-webkit-scrollbar {
+  width: 8px !important;
+  height: 8px !important;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff5252;
+}
+::-webkit-scrollbar-track {
+  background: #f5f0f0;
+}
 .container {
   width: 95%;
   margin: auto;
@@ -60,6 +70,10 @@ nav ul button:hover {
   color: #000;
 }
 
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background: #33ccff !important;
+}
 .homeCatSlider {
   overflow: inherit !important;
 }
@@ -85,11 +99,9 @@ nav ul button:hover {
 .homeCatSlider .swiper-button-next {
   right: -10px !important;
 }
-.homeCatSlider .swiper-button-prev:hover,
-.homeCatSlider .swiper-button-next:hover {
-  background: #ff5252 !important;
-}
-.homeCatSlider .swiper-button-prev:hover::after,
-.homeCatSlider .swiper-button-next:hover::after {
+  */
+
+/* .swiper-button-prev:hover::after,
+.swiper-button-next:hover::after {
   background: #ff5252 !important;
 } */

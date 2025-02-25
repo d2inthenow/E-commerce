@@ -15,7 +15,7 @@ import catSlider7 from "../../assets/catSlider7.png";
 
 const HomeCatSlider = () => {
   return (
-    <div className="homeCatSlider">
+    <div className="homeCatSlider !py-8">
       <div className="container">
         <Swiper
           slidesPerView={8}

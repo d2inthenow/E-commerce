@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -20,11 +20,15 @@ const HomeSlider = () => {
         <Swiper
           className="sliderHome"
           navigation={true}
-          modules={[Navigation]}
+          modules={[Navigation, Autoplay]}
           slidesPerView={1.5}
           centeredSlides={true}
           spaceBetween={20}
           loop={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
         >
           {images.map((img, index) => (
             <SwiperSlide key={index}>
