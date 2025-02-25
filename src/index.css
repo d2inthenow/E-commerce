@@ -69,7 +69,7 @@ nav ul button:hover {
 .homeCatSlider .item:hover img {
   transform: scale(1.1);
 }
-.homeCatSlider .swiper-button-prev,
+/* .homeCatSlider .swiper-button-prev,
 .homeCatSlider .swiper-button-next {
   width: 35px;
   height: 35px;
@@ -92,4 +92,4 @@ nav ul button:hover {
 .homeCatSlider .swiper-button-prev:hover::after,
 .homeCatSlider .swiper-button-next:hover::after {
   background: #ff5252 !important;
-}
+} */

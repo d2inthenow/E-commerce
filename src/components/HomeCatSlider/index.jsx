@@ -18,11 +18,11 @@ const HomeCatSlider = () => {
     <div className="homeCatSlider">
       <div className="container">
         <Swiper
-          slidesPerView={6}
+          slidesPerView={8}
           spaceBetween={10}
           className="mySwiper"
-          navigation={true}
           modules={[Navigation]}
+          // navigation="true"
         >
           <SwiperSlide>
             <Link to="">
