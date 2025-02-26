@@ -15,19 +15,19 @@ const Navigation = () => {
   return (
     <>
       <nav className="py-2">
-        <div className="container flex items-center justify-end gap-8">
+        <div className="container flex items-center justify-end gap-10">
           <div className="col_1 w-[20%]">
             <Button
-              className="!text-black gap-1 w-full"
+              className="!text-black gap-2 w-full"
               onClick={openCategoryPanel}
             >
               {" "}
-              <LuMenu className="text-[18px]" /> Shop By Categories
+              <LuMenu className="text-[20px]" /> Shop By Categories
               <FaAngleDown className="text-[12px] ml-auto font-bold cursor-pointer" />
             </Button>
           </div>
           <div className="col_2 w-[60%]">
-            <ul className="flex items-center gap-2 nav">
+            <ul className="flex items-center gap-5 nav">
               <li className="list-none">
                 <Link to="/" className="link transition text-[14px] font-[500]">
                   <Button className="link transition !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]">

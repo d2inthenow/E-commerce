@@ -4,14 +4,14 @@ import { Navigation } from "swiper/modules";
 import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
-import catSlider from "../../assets/catSlider.png";
-import catSlider1 from "../../assets/catSlider1.png";
-import catSlider2 from "../../assets/catSlider2.png";
-import catSlider3 from "../../assets/catSlider3.png";
-import catSlider4 from "../../assets/catSlider4.png";
-import catSlider5 from "../../assets/catSlider5.png";
-import catSlider6 from "../../assets/catSlider6.png";
-import catSlider7 from "../../assets/catSlider7.png";
+import catSlider from "../../assets/images/CatSlider/catSlider.png";
+import catSlider1 from "../../assets/images/CatSlider/catSlider1.png";
+import catSlider2 from "../../assets/images/CatSlider/catSlider2.png";
+import catSlider3 from "../../assets/images/CatSlider/catSlider3.png";
+import catSlider4 from "../../assets/images/CatSlider/catSlider4.png";
+import catSlider5 from "../../assets/images/CatSlider/catSlider5.png";
+import catSlider6 from "../../assets/images/CatSlider/catSlider6.png";
+import catSlider7 from "../../assets/images/CatSlider/catSlider7.png";
 
 const HomeCatSlider = () => {
   return (

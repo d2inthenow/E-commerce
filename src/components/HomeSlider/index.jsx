@@ -4,13 +4,13 @@ import { Navigation, Autoplay } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import Banner5 from "../../../src/assets/banner.jpg";
-import Banner1 from "../../../src/assets/banner1.jpg";
-import Banner2 from "../../../src/assets/banner2.jpg";
-import Banner3 from "../../../src/assets/banner3.jpg";
-import Banner4 from "../../../src/assets/banner4.jpg";
-import Banner from "../../../src/assets/banner5.jpg";
-import Banner6 from "../../../src/assets/banner6.jpg";
+import Banner5 from "../../../src/assets/images/HomeBanner/banner.jpg";
+import Banner1 from "../../../src/assets/images/HomeBanner/banner1.jpg";
+import Banner2 from "../../../src/assets/images/HomeBanner/banner2.jpg";
+import Banner3 from "../../../src/assets/images/HomeBanner/banner3.jpg";
+import Banner4 from "../../../src/assets/images/HomeBanner/banner4.jpg";
+import Banner from "../../../src/assets/images/HomeBanner/banner5.jpg";
+import Banner6 from "../../../src/assets/images/HomeBanner/banner6.jpg";
 
 const HomeSlider = () => {
   const images = [Banner, Banner1, Banner2, Banner3, Banner4, Banner5, Banner6];
