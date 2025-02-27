@@ -31,6 +31,7 @@ body {
   max-width: 1800px;
   width: 100%;
   margin: auto;
+  padding: 0 15px !important;
 }
 
 .link:hover {
@@ -127,4 +128,26 @@ nav ul button:hover {
 }
 .MuiTab-textColorPrimary.Mui-selected {
   color: #ff5252 !important;
+}
+.moving-text-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  height: 20px; /* Đảm bảo chiều cao để tránh tràn */
+}
+
+.moving-text {
+  display: inline-block;
+  will-change: transform;
+  animation: marquee 6s linear infinite;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
 }
