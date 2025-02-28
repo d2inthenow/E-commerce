@@ -129,7 +129,6 @@ nav ul button:hover {
   margin-right: -15px;
 }
 
-,
 .MuiTabs-indicator {
   background-color: #ff5252 !important;
 }
@@ -142,7 +141,7 @@ nav ul button:hover {
   overflow: hidden;
   white-space: nowrap;
   position: relative;
-  height: 20px; /* Đảm bảo chiều cao để tránh tràn */
+  height: 20px;
 }
 
 .moving-text {

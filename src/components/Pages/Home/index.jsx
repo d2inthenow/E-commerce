@@ -28,7 +28,7 @@ const Home = () => {
                 Do not miss the current offers until the end of March
               </p>
             </div>
-            <div className="rightSec w-[38%]">
+            <div className="rightSec w-[40%]">
               <Tabs
                 value={value}
                 onChange={handleChange}
@@ -52,7 +52,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="!py-16  bg-white">
+      <section className="!py-7 !pt-2 bg-white">
         <div className="container ">
           <div className="freeShipping w-[80%] !m-auto !mb-7 !p-4 !py-3 border-3 border-[#ff5252] rounded-md flex items-center justify-between">
             <div className="col1 flex items-center gap-4">
@@ -72,6 +72,19 @@ const Home = () => {
         </div>
       </section>
 
+      <section className="!py-5 bg-white">
+        <div className="container">
+          <h2 className="text-[20px] font-bold">Lastest Products</h2>
+          <ProductsSlider items={5} />
+          <AdsBannerSlider items={3} />
+        </div>
+      </section>
+      <section className="!py-5 bg-white">
+        <div className="container">
+          <h2 className="text-[20px] font-bold">Featured Products</h2>
+          <ProductsSlider items={5} />
+        </div>
+      </section>
       <br></br>
       <br></br>
       <br></br>
