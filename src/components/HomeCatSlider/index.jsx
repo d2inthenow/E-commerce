@@ -22,7 +22,7 @@ const HomeCatSlider = () => {
           spaceBetween={10}
           className="mySwiper"
           modules={[Navigation]}
-          // navigation="true"
+          // navigation={true}
         >
           <SwiperSlide>
             <Link to="">

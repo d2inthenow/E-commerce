@@ -1,12 +1,17 @@
 import { useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import Box from "@mui/material/Box";
 import HomeSlider from "../../HomeSlider";
 import HomeCatSlider from "../../HomeCatSlider";
 import { FaShippingFast } from "react-icons/fa";
 import AdsBannerSlider from "../../AdsBannerSlider";
 import ProductsSlider from "../../ProductsSlider";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation } from "swiper/modules";
+import { Link } from "react-router-dom";
+import "swiper/css";
+import "swiper/css/navigation";
+import BlogItem from "../../BlogItem";
 
 const Home = () => {
   const [value, setValue] = useState(0);
@@ -72,24 +77,52 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="!py-5 bg-white">
+      <section className="!py-5 !pt-0 bg-white">
         <div className="container">
           <h2 className="text-[20px] font-bold">Lastest Products</h2>
           <ProductsSlider items={5} />
           <AdsBannerSlider items={3} />
         </div>
       </section>
-      <section className="!py-5 bg-white">
+
+      <section className="!py-5 !pt-0 bg-white">
         <div className="container">
           <h2 className="text-[20px] font-bold">Featured Products</h2>
           <ProductsSlider items={5} />
         </div>
       </section>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+
+      <section className="blogSection !py-5 !pb-8 !pt-0 bg-white ">
+        <div className="container">
+          <h2 className="text-[20px] font-bold !mb-4">From The Blog</h2>
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={30}
+            className="blogSlider"
+            modules={[Navigation]}
+            navigation={true}
+          >
+            <SwiperSlide>
+              <BlogItem />
+            </SwiperSlide>
+            <SwiperSlide>
+              <BlogItem />
+            </SwiperSlide>
+            <SwiperSlide>
+              <BlogItem />
+            </SwiperSlide>
+            <SwiperSlide>
+              <BlogItem />
+            </SwiperSlide>
+            <SwiperSlide>
+              <BlogItem />
+            </SwiperSlide>
+            <SwiperSlide>
+              <BlogItem />
+            </SwiperSlide>
+          </Swiper>
+        </div>
+      </section>
       <br></br>
       <br></br>
       <br></br>

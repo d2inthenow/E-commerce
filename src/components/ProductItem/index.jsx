@@ -24,13 +24,13 @@ const ProductItem = ({ image }) => {
             />
           </div>
         </Link>
-        <span className="discount flex items-center absolute !p-2 text-[15px] font-[500] rounded-full top-[10px] left-[10px] z-50 bg-[#ff5252] text-white">
+        <span className="discount flex items-center absolute !p-2 text-[15px] font-[500] rounded-full top-[10px] left-[10px] !z-50 bg-[#ff5252] text-white">
           17%
         </span>
 
         <div
           className="actions absolute top-[-200px]
-         right-[-5px] z-50 flex flex-col items-center
+         right-[-5px] !z-50 flex flex-col items-center
           gap-4 w-[70px] group-hover:top-[10px] transition-all duration-300 opacity-0  group-hover:opacity-100"
         >
           <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !bg-[white] !text-black hover:!bg-[#ff5252] hover:!text-white">
