@@ -136,6 +136,20 @@ nav ul button:hover {
   color: #ff5252 !important;
 }
 
+footer form input::placeholder {
+  font-size: 14px;
+}
+
+.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.Mui-checked,
+.css-imrjgg-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate {
+  color: #ff5252 !important;
+}
+
+.MuiFormControlLabel-label {
+  font-size: 14px !important;
+  color: rgba(0, 0, 0, 0.8) !important;
+}
+
 .moving-text-container {
   width: 100%;
   overflow: hidden;

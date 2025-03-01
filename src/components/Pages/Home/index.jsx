@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import BlogItem from "../../BlogItem";
+import Footer from "../../Footer";
 
 const Home = () => {
   const [value, setValue] = useState(0);
@@ -123,10 +124,8 @@ const Home = () => {
           </Swiper>
         </div>
       </section>
-      <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
+
+      <Footer />
     </>
   );
 };
