@@ -150,6 +150,15 @@ footer form input::placeholder {
   color: rgba(0, 0, 0, 0.8) !important;
 }
 
+.swiper-pagination-bullet-active {
+  background: #ff5252 !important;
+}
+
+.homeSliderV2 .swiper-slide-active .info {
+  right: 0px !important;
+  opacity: 1;
+}
+
 .moving-text-container {
   width: 100%;
   overflow: hidden;
