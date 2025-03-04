@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import "../ProductItem/style.css";
 import productRp from "../../assets/images/ProductItem/product_rp.jpg";

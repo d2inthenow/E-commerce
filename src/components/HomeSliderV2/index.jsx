@@ -4,7 +4,7 @@ import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { EffectFade, Navigation, Pagination } from "swiper/modules";
+import { Autoplay, EffectFade, Navigation, Pagination } from "swiper/modules";
 import Button from "@mui/material/Button";
 import product from "../../assets/images/HomeBannerV2/product.jpg";
 import product1 from "../../assets/images/HomeBannerV2/product1.jpg";
@@ -21,11 +21,15 @@ const HomeSliderV2 = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[EffectFade, Navigation, Pagination]}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        modules={[EffectFade, Navigation, Pagination, Autoplay]}
         className="homeSliderV2"
       >
         <SwiperSlide>
-          <div className="item  rounded-md overflow-hidden relative">
+          <div className="item rounded-md overflow-hidden relative">
             <img src={product} alt="image" className="w-full object-cover" />
             <div
               className="info absolute top-0 -right-[100%] opacity-0 w-[50%] h-[100%] z-50 !p-8 
@@ -132,7 +136,7 @@ const HomeSliderV2 = () => {
               >
                 Starting At Only
                 <span className="text-[45px] text-[#ff5252] font-bold">
-                  $99.00
+                  $199.00
                 </span>
               </h3>
               <div

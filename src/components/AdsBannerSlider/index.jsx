@@ -19,6 +19,7 @@ const AdsBannerSlider = (props) => {
         spaceBetween={10}
         className="smlBtn"
         modules={[Navigation]}
+        loop={true}
         navigation={true}
       >
         <SwiperSlide>

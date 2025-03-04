@@ -8,12 +8,14 @@ import AdsBannerSlider from "../../AdsBannerSlider";
 import ProductsSlider from "../../ProductsSlider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
-import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/navigation";
 import BlogItem from "../../BlogItem";
 import Footer from "../../Footer";
 import HomeSliderV2 from "../../HomeSliderV2";
+import BannerBoxV2 from "../../BannerBoxV2";
+import banner from "../../../assets/images/AdsBanner/adsV2.jpg";
+import banner1 from "../../../assets/images/AdsBanner/ads1V2.jpg";
 
 const Home = () => {
   const [value, setValue] = useState(0);
@@ -23,11 +25,15 @@ const Home = () => {
 
   return (
     <>
-      {/* <HomeSlider /> */}
+      <HomeSlider />
       <section className="!py-6">
-        <div className="container flex items-center ">
-          <div className="part1 w-[75%]">
+        <div className="container flex gap-5">
+          <div className="part1 w-[70%] min-h-[500px]">
             <HomeSliderV2 />
+          </div>
+          <div className="part2 w-[30%] flex flex-col items-center justify-between gap-5">
+            <BannerBoxV2 info="left" image={banner} />
+            <BannerBoxV2 info="right" image={banner1} />
           </div>
         </div>
       </section>
@@ -111,6 +117,7 @@ const Home = () => {
             className="blogSlider"
             modules={[Navigation]}
             navigation={true}
+            loop={true}
           >
             <SwiperSlide>
               <BlogItem />
