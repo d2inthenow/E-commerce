@@ -58,7 +58,7 @@ const Header = () => {
         <div className="container flex items-center justify-between ">
           <div className="col1 w-[25%]">
             <Link to="/">
-              <img className="w-40 h-30" src={logo} />
+              <img className="w-40 h-30 object-cover" src={logo} />
             </Link>
           </div>
           <div className="col2 w-[45%]">
