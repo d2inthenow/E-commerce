@@ -69,7 +69,6 @@ const Footer = () => {
 
               <div className="col flex items-center justify-center flex-col group w-[15%]">
                 <FcCustomerSupport
-                  pingFast
                   className="text-[50px] transition-all
               duration-300 group-hover:text-[#ff5252] group-hover:-translate-y-2"
                 />

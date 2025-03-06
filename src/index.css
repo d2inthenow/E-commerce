@@ -135,6 +135,13 @@ nav ul button:hover {
 .MuiTab-textColorPrimary.Mui-selected {
   color: #ff5252 !important;
 }
+.MuiCheckbox-root {
+  padding: 6px !important;
+}
+
+.ReactCollapse--collapse {
+  transition: height 700ms;
+}
 
 footer form input::placeholder {
   font-size: 14px;
@@ -187,6 +194,7 @@ footer form input::placeholder {
 .homeSliderV2 .info .btn_ {
   transition-duration: 2.2s;
 }
+
 .moving-text-container {
   width: 100%;
   overflow: hidden;
