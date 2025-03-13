@@ -7,8 +7,11 @@ import Button from "@mui/material/Button";
 import { FaRegHeart } from "react-icons/fa6";
 import { MdOutlineZoomOutMap } from "react-icons/md";
 import { FaCodeCompare } from "react-icons/fa6";
-import React from "react";
+import { useContext } from "react";
+import { MyContext } from "../../App";
+
 const ProductItem = () => {
+  const context = useContext(MyContext);
   return (
     <div className="productItem shadow-lg rounded-md overflow-hidden border-2 border-[rgba(0,0,0,0.1)] ">
       <div className="imgWrapper w-[100%]  overflow-hidden rounded-md relative group">
@@ -36,11 +39,18 @@ const ProductItem = () => {
             <FaRegHeart className="text-[15px]" />
           </Button>
 
-          <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !bg-white !text-black hover:!bg-[#ff5252] hover:!text-white">
-            <FaCodeCompare className="text-[15px]" />
+          <Button
+            className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full
+           !bg-white !text-black hover:!bg-[#ff5252] hover:!text-white "
+          >
+            <FaCodeCompare className="text-[15px] " />
           </Button>
 
-          <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !bg-[white] !text-black hover:!bg-[#ff5252] hover:!text-white">
+          <Button
+            className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !bg-[white]
+           !text-black hover:!bg-[#ff5252] hover:!text-white"
+            onClick={() => context.setOpenProductDetailsModal(true)}
+          >
             <MdOutlineZoomOutMap className="text-[15px]" />
           </Button>
         </div>

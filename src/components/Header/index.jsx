@@ -26,7 +26,7 @@ const Header = () => {
         <div className="container">
           <div className="flex items-center justify-between">
             <div className="col1 w-[50%] moving-text-container">
-              <p className="text-[14px] font-bold moving-text text-[#ff5252]">
+              <p className="text-[14px] font-bold moving-text text-[#ff5252] !mt-0">
                 Get up to 50% new season styles, limited time only
               </p>
             </div>

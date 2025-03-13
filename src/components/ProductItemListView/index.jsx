@@ -9,8 +9,11 @@ import { MdOutlineZoomOutMap } from "react-icons/md";
 import { FaCodeCompare } from "react-icons/fa6";
 import React from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { useContext } from "react";
+import { MyContext } from "../../App";
 
 const ProductItemListView = () => {
+  const context = useContext(MyContext);
   return (
     <div
       className="productItem shadow-lg rounded-md overflow-hidden
@@ -45,7 +48,11 @@ const ProductItemListView = () => {
             <FaCodeCompare className="text-[15px]" />
           </Button>
 
-          <Button className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !bg-[white] !text-black hover:!bg-[#ff5252] hover:!text-white">
+          <Button
+            className="!w-[40px] !h-[40px] !min-w-[40px] !rounded-full !bg-[white]
+           !text-black hover:!bg-[#ff5252] hover:!text-white"
+            onClick={() => context.setOpenProductDetailsModal(true)}
+          >
             <MdOutlineZoomOutMap className="text-[15px]" />
           </Button>
         </div>

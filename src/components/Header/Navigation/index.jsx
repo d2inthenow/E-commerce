@@ -21,7 +21,6 @@ const Navigation = () => {
               className="!text-black gap-2 w-full"
               onClick={openCategoryPanel}
             >
-              {" "}
               <LuMenu className="text-[20px]" /> Shop By Categories
               <FaAngleDown className="text-[12px] !ml-auto font-bold cursor-pointer" />
             </Button>
@@ -40,7 +39,7 @@ const Navigation = () => {
               </li>
               <li className="list-none relative">
                 <Link
-                  to="/"
+                  to="/productListing"
                   className="link transition text-[14px] font-[500] "
                 >
                   <Button className="link transition !py-4 !font-[500] !text-[rgba(0,0,0,0.8)] hover:!text-[#ff5252]">
