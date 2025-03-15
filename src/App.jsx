@@ -1,6 +1,11 @@
-import { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
+import { useState, createContext } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductZoom from "./components/ProductZoom";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogContent from "@mui/material/DialogContent";
+import { IoCloseSharp } from "react-icons/io5";
 import Home from "./components/Pages/Home";
 import Header from "./components/Header";
 import OrderTracking from "./components/Pages/Order_Tracking";
@@ -8,14 +13,9 @@ import HelpCenter from "./components/Pages/Help_Center";
 import ProductListing from "./components/Pages/ProductListing";
 import Footer from "./components/Footer";
 import ProductDetails from "./components/Pages/ProductDetails";
-import { createContext } from "react";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogContent from "@mui/material/DialogContent";
-import ProductZoom from "./components/ProductZoom";
-import { IoCloseSharp } from "react-icons/io5";
 import ProductDetailsComponent from "./components/ProductDetailsComponent";
-
+import Login from "./components/Pages/Login";
+import Register from "./components/Pages/Register";
 const MyContext = createContext();
 
 function App() {
@@ -36,10 +36,24 @@ function App() {
           <Header />
           <Routes>
             <Route path={"/"} exact={true} element={<Home />} />
-            <Route path="/orderTracking" element={<OrderTracking />} />
-            <Route path="/helpCenter" element={<HelpCenter />} />
-            <Route path="/productListing" element={<ProductListing />} />
-            <Route path="/productDetails/:id" element={<ProductDetails />} />
+            <Route
+              path={"/orderTracking"}
+              exact={true}
+              element={<OrderTracking />}
+            />
+            <Route path={"/helpCenter"} exact={true} element={<HelpCenter />} />
+            <Route
+              path={"/productListing"}
+              exact={true}
+              element={<ProductListing />}
+            />
+            <Route
+              path={"/productDetails/:id"}
+              exact={true}
+              element={<ProductDetails />}
+            />
+            <Route path={"/login"} exact={true} element={<Login />} />
+            <Route path={"/register"} exact={true} element={<Register />} />
           </Routes>
           <Footer />
         </MyContext.Provider>
