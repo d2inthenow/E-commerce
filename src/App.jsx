@@ -16,18 +16,27 @@ import ProductDetails from "./components/Pages/ProductDetails";
 import ProductDetailsComponent from "./components/ProductDetailsComponent";
 import Login from "./components/Pages/Login";
 import Register from "./components/Pages/Register";
+
 const MyContext = createContext();
 
 function App() {
   const [openProductDetailsModal, setOpenProductDetailsModal] = useState(false);
   const [fullWidth, setFullWidth] = useState(true);
   const [maxWidth, setMaxWidth] = useState("lg");
+  const [openCartPanel, setOpenCartPanel] = useState(false);
+
+  const toggleDrawer = (newOpen) => () => {
+    setOpenCartPanel(newOpen);
+  };
 
   const handleCloseProductDetailsModal = () => {
     setOpenProductDetailsModal(false);
   };
   const values = {
     setOpenProductDetailsModal,
+    setOpenCartPanel,
+    openCartPanel,
+    toggleDrawer,
   };
   return (
     <>

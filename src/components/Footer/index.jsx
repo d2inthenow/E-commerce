@@ -9,8 +9,11 @@ import { CiChat2 } from "react-icons/ci";
 import { FaFacebookF } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
 import { FaPhoneFlip } from "react-icons/fa6";
+import { IoCloseSharp } from "react-icons/io5";
 import { IoLogoYoutube } from "react-icons/io5";
 import Button from "@mui/material/Button";
+import Drawer from "@mui/material/Drawer";
+import CartPanel from "../CartPanel";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import picture from "../../assets/images/Footer/picture.png";
@@ -18,7 +21,12 @@ import picture1 from "../../assets/images/Footer/picture1.png";
 import picture2 from "../../assets/images/Footer/picture2.png";
 import picture3 from "../../assets/images/Footer/picture3.png";
 import picture4 from "../../assets/images/Footer/picture4.png";
+import { useState, useContext } from "react";
+import { MyContext } from "../../App";
+
 const Footer = () => {
+  const context = useContext(MyContext);
+
   return (
     <>
       <footer>
@@ -79,7 +87,7 @@ const Footer = () => {
             <br />
             <hr />
 
-            <div className="footer flex !py-10">
+            <div className="footer flex !py-8">
               <div className="part1 w-[30%] border-r-2 border-[rgba(0,0,0,0.1)]">
                 <h2 className="text-[20px] font-[600] !mb-4">Contact us</h2>
                 <p className="text-[15px] font-[400] !pb-4">
@@ -260,6 +268,24 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      {/* Cart Panel */}
+      <Drawer
+        className="cartPanel overflow-hidden"
+        open={context.openCartPanel}
+        onClose={context.toggleDrawer(false)}
+        anchor="right"
+      >
+        <div className="flex items-center justify-between !py-3 !px-4 gap-3 border-b border-[rgba(0,0,0,0.1)]">
+          <h4 className="text-[18px] font-[600] text-black">
+            Shopping Cart (1)
+          </h4>
+          <IoCloseSharp
+            className="text-[20px] cursor-pointer"
+            onClick={context.toggleDrawer(false)}
+          />
+        </div>
+        <CartPanel />
+      </Drawer>
     </>
   );
 };
