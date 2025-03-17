@@ -300,6 +300,10 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 400px !important;
   overflow: hidden !important;
 }
+
+#size-menu .MuiButtonBase-root {
+  font-size: 12px !important;
+}
 @keyframes marquee {
   from {
     transform: translateX(-100%);

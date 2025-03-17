@@ -16,6 +16,7 @@ import ProductDetails from "./components/Pages/ProductDetails";
 import ProductDetailsComponent from "./components/ProductDetailsComponent";
 import Login from "./components/Pages/Login";
 import Register from "./components/Pages/Register";
+import CartPage from "./components/Pages/Cart";
 
 const MyContext = createContext();
 
@@ -63,6 +64,7 @@ function App() {
             />
             <Route path={"/login"} exact={true} element={<Login />} />
             <Route path={"/register"} exact={true} element={<Register />} />
+            <Route path={"/cart"} exact={true} element={<CartPage />} />
           </Routes>
           <Footer />
         </MyContext.Provider>
