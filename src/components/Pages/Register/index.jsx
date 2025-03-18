@@ -46,7 +46,7 @@ const Register = () => {
             <div className="form-group w-full !mb-5 relative">
               <TextField
                 className="w-full"
-                type={isShowPassword === true ? "password" : "text"}
+                type={isShowPassword === false ? "password" : "text"}
                 id="password"
                 label="Password"
                 variant="outlined"
@@ -57,9 +57,9 @@ const Register = () => {
                 onClick={() => setIsShowPassword(!isShowPassword)}
               >
                 {isShowPassword === true ? (
-                  <IoMdEye className="text-[20px] opacity-75" />
-                ) : (
                   <IoMdEyeOff className="text-[20px] opacity-75" />
+                ) : (
+                  <IoMdEye className="text-[20px] opacity-75" />
                 )}
               </Button>
             </div>

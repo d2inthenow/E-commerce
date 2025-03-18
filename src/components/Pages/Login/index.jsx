@@ -2,11 +2,27 @@ import { React, useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
+import { MyContext } from "../../../App";
+import { useContext } from "react";
 const Login = () => {
+  const context = useContext(MyContext);
   const [isShowPassword, setIsShowPassword] = useState(false);
+  const [formFields, setFormFields] = useState({
+    email: "",
+    password: "",
+  });
+
+  const history = useNavigate();
+
+  const forgotPassword = () => {
+    if (formFields.email === "") {
+      history("/verify");
+      context.openAlertBox("success", "OTP send to your email");
+    }
+  };
   return (
     <section className="section !py-10">
       <div className="container">
@@ -22,15 +38,17 @@ const Login = () => {
                 id="email"
                 label="Email"
                 variant="outlined"
+                name="email"
               />
             </div>
             <div className="form-group w-full !mb-5 relative">
               <TextField
                 className="w-full"
-                type={isShowPassword === true ? "password" : "text"}
+                type={isShowPassword === false ? "password" : "text"}
                 id="password"
                 label="Password"
                 variant="outlined"
+                name="password"
               />
               <Button
                 className="!absolute top-[10px] right-[10px] z-50 !w-[35px] !h-[35px]
@@ -38,13 +56,16 @@ const Login = () => {
                 onClick={() => setIsShowPassword(!isShowPassword)}
               >
                 {isShowPassword === true ? (
-                  <IoMdEye className="text-[20px] opacity-75" />
-                ) : (
                   <IoMdEyeOff className="text-[20px] opacity-75" />
+                ) : (
+                  <IoMdEye className="text-[20px] opacity-75" />
                 )}
               </Button>
             </div>
-            <a href="" className="link cursor-pointer text-[14px] font-[600] ">
+            <a
+              className="link cursor-pointer text-[14px] font-[600]"
+              onClick={forgotPassword}
+            >
               Forgot Password?
             </a>
 
