@@ -20,6 +20,7 @@ import CartPage from "./components/Pages/Cart";
 import Verify from "./components/Pages/Verify";
 import ForgotPassWord from "./components/Pages/ForgotPassWord";
 import toast, { Toaster } from "react-hot-toast";
+import Checkout from "./components/Pages/Checkout";
 
 const MyContext = createContext();
 
@@ -85,6 +86,7 @@ function App() {
               exact={true}
               element={<ForgotPassWord />}
             />
+            <Route path={"/checkout"} exact={true} element={<Checkout />} />
           </Routes>
           <Footer />
         </MyContext.Provider>
