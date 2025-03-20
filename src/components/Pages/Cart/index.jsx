@@ -8,9 +8,9 @@ const CartPage = () => {
       <div className="container flex !w-[80%] !max-w-[80%] gap-5">
         <div className="leftPart w-[70%]">
           <div className="shadow-md rounded-md bg-white ">
-            <div className="!py-2 !px-3 border-b border-[rgba(0,0,0,0.1)]">
+            <div className="!py-5 !px-3 border-b border-[rgba(0,0,0,0.1)]">
               <h2 className="font-[600]">Your Cart</h2>
-              <p className="!mt-0">
+              <p className="!mt-0 !mb-0 ">
                 There are <span className="text-[#ff5252] font-[600]">2 </span>
                 products in your cart
               </p>

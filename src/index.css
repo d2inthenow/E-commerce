@@ -217,6 +217,10 @@ footer form input::placeholder {
   padding: 10px 20px !important;
   font-size: 18px;
 }
+.btn-sml {
+  padding: 10px 20px !important;
+  font-size: 12px !important;
+}
 
 .homeSliderV2 .info h4 {
   transition-duration: 1.5s;
