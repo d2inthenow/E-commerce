@@ -23,6 +23,10 @@ p {
   font-family: "Montserrat", serif !important;
 }
 
+.overflow-x-auto::-webkit-scrollbar-thumb {
+  background: #ccc;
+}
+
 ::-webkit-scrollbar {
   width: 8px !important;
   height: 8px !important;
