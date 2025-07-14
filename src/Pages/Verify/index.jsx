@@ -1,16 +1,33 @@
-import { useState } from "react";
-import Shield from "../../../assets/images/Footer/shield.jpg";
-import OtpBox from "../../OtpBox";
+import { useState, useContext } from "react";
+import Shield from "../../assets/images/Footer/shield.jpg";
+import OtpBox from "../../components/OtpBox";
 import Button from "@mui/material/Button";
+import { postData } from "../../utils/api";
+import { useNavigate } from "react-router-dom";
+import { MyContext } from "../../App";
 const Verify = () => {
   const [otp, setOtp] = useState("");
   const handleOtpChange = (value) => {
     setOtp(value);
   };
+  const context = useContext(MyContext);
+  const history = useNavigate();
 
   const verifyOTP = (e) => {
     e.preventDefault();
-    alert(`OTP is ${otp}`);
+
+    postData("/api/user/verifyEmail", {
+      email: localStorage.getItem("userEmail"),
+      otp: otp,
+    }).then((res) => {
+      if (res?.error === false) {
+        context.openAlertBox("success", res?.message);
+        localStorage.removeItem("userEmail");
+        history("/login");
+      } else {
+        context.openAlertBox("error", res?.message);
+      }
+    });
   };
   return (
     <section className="section !py-10">
@@ -26,7 +43,7 @@ const Verify = () => {
           <p className="text-center !mt-0">
             Otp send to email :{" "}
             <span className="text-[#ff5252] font-bold">
-              Duong0023@gmail.com
+              {localStorage.getItem("userEmail")}
             </span>
           </p>
 

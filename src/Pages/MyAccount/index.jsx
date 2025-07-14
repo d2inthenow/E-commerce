@@ -1,7 +1,6 @@
-import React from "react";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
-import AccountSideBar from "../../AccountSideBar";
+import AccountSideBar from "../../components/AccountSideBar";
 const MyAccount = () => {
   return (
     <section className="!py-10 w-full">

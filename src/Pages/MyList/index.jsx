@@ -1,7 +1,5 @@
-import Button from "@mui/material/Button";
-import { IoBagCheckSharp } from "react-icons/io5";
 import MyListItem from "./myListItem";
-import AccountSideBar from "../../AccountSideBar";
+import AccountSideBar from "../../components/AccountSideBar";
 
 const MyList = () => {
   return (

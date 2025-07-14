@@ -6,24 +6,24 @@ import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogContent from "@mui/material/DialogContent";
 import { IoCloseSharp } from "react-icons/io5";
-import Home from "./components/Pages/Home";
+import Home from "./Pages/Home";
 import Header from "./components/Header";
-import OrderTracking from "./components/Pages/Order_Tracking";
-import HelpCenter from "./components/Pages/Help_Center";
-import ProductListing from "./components/Pages/ProductListing";
+import OrderTracking from "./Pages/Order_Tracking";
+import HelpCenter from "./Pages/Help_Center";
+import ProductListing from "./Pages/ProductListing";
 import Footer from "./components/Footer";
-import ProductDetails from "./components/Pages/ProductDetails";
+import ProductDetails from "./Pages/ProductDetails";
 import ProductDetailsComponent from "./components/ProductDetailsComponent";
-import Login from "./components/Pages/Login";
-import Register from "./components/Pages/Register";
-import CartPage from "./components/Pages/Cart";
-import Verify from "./components/Pages/Verify";
-import ForgotPassWord from "./components/Pages/ForgotPassWord";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
+import CartPage from "./Pages/Cart";
+import Verify from "./Pages/Verify";
+import ForgotPassWord from "./Pages/ForgotPassWord";
 import toast, { Toaster } from "react-hot-toast";
-import Checkout from "./components/Pages/Checkout";
-import MyAccount from "./components/Pages/MyAccount";
-import MyList from "./components/Pages/MyList";
-import Orders from "./components/Pages/Orders";
+import Checkout from "./Pages/Checkout";
+import MyAccount from "./Pages/MyAccount";
+import MyList from "./Pages/MyList";
+import Orders from "./Pages/Orders";
 
 const MyContext = createContext();
 
@@ -36,7 +36,10 @@ function App() {
   const [openCartPanel, setOpenCartPanel] = useState(false);
 
   //Login
-  const [isLogin, setIsLogin] = useState(true);
+  const [isLogin, setIsLogin] = useState(false);
+
+  // API URL
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   const toggleDrawer = (newOpen) => () => {
     setOpenCartPanel(newOpen);
@@ -106,6 +109,7 @@ function App() {
       </BrowserRouter>
 
       <Toaster />
+
       <Dialog
         open={openProductDetailsModal}
         fullWidth={fullWidth}

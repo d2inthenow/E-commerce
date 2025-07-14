@@ -1,21 +1,21 @@
 import { useState } from "react";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import HomeSlider from "../../HomeSlider";
-import HomeCatSlider from "../../HomeCatSlider";
+import HomeSlider from "../../components/HomeSlider";
+import HomeCatSlider from "../../components/HomeCatSlider";
 import { FaShippingFast } from "react-icons/fa";
-import AdsBannerSlider from "../../AdsBannerSlider";
-import ProductsSlider from "../../ProductsSlider";
+import AdsBannerSlider from "../../components/AdsBannerSlider";
+import ProductsSlider from "../../components/ProductsSlider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import BlogItem from "../../BlogItem";
+import BlogItem from "../../components/BlogItem";
 
-import HomeSliderV2 from "../../HomeSliderV2";
-import BannerBoxV2 from "../../BannerBoxV2";
-import banner from "../../../assets/images/AdsBanner/adsV2.jpg";
-import banner1 from "../../../assets/images/AdsBanner/ads1V2.jpg";
+import HomeSliderV2 from "../../components/HomeSliderV2";
+import BannerBoxV2 from "../../components/BannerBoxV2";
+import banner from "../../assets/images/AdsBanner/adsV2.jpg";
+import banner1 from "../../assets/images/AdsBanner/ads1V2.jpg";
 
 const Home = () => {
   const [value, setValue] = useState(0);

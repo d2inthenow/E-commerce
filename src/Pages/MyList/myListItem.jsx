@@ -1,5 +1,4 @@
-import { useState } from "react";
-import product from "../../../assets/images/ProductItem/product2.jpg";
+import product from "../../assets/images/ProductItem/product2.jpg";
 import { Link } from "react-router-dom";
 import { IoCloseSharp } from "react-icons/io5";
 import Rating from "@mui/material/Rating";

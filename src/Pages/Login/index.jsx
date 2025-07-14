@@ -5,7 +5,7 @@ import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
 import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
-import { MyContext } from "../../../App";
+import { MyContext } from "../../App";
 import { useContext } from "react";
 const Login = () => {
   const context = useContext(MyContext);

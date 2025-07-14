@@ -1,9 +1,8 @@
-import React from "react";
-import AccountSideBar from "../../AccountSideBar";
+import AccountSideBar from "../../components/AccountSideBar";
 import Button from "@mui/material/Button";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
-import Badge from "../../Badge";
-import image from "../../../assets/images/ProductItem/product.jpg";
+import Badge from "../../components/Badge";
+import image from "../../assets/images/ProductItem/product.jpg";
 import { useState } from "react";
 const Orders = () => {
   const [isOpenOrderProduct, setIsOpenOrderProduct] = useState(null);

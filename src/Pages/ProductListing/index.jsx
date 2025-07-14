@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import SideBar from "../../SideBar";
+import SideBar from "../../components/SideBar";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
-import ProductItem from "../../ProductItem";
-import ProductItemListView from "../../ProductItemListView";
+import ProductItem from "../../components/ProductItem";
+import ProductItemListView from "../../components/ProductItemListView";
 import { FiGrid } from "react-icons/fi";
 import { RiMenuLine } from "react-icons/ri";
 import Button from "@mui/material/Button";

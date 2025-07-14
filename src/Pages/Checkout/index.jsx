@@ -1,6 +1,5 @@
-import React from "react";
 import TextField from "@mui/material/TextField";
-import product from "../../../assets/images/ProductItem/product1.jpg";
+import product from "../../assets/images/ProductItem/product1.jpg";
 import Button from "@mui/material/Button";
 import { BsFillBagCheckFill } from "react-icons/bs";
 const Checkout = () => {

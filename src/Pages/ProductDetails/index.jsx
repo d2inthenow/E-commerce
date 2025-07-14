@@ -1,18 +1,18 @@
 import { useState } from "react";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
 import Link from "@mui/material/Link";
-import ProductZoom from "../../ProductZoom";
-import ProductsSlider from "../../ProductsSlider";
+import ProductZoom from "../../components/ProductZoom";
+import ProductsSlider from "../../components/ProductsSlider";
 import Rating from "@mui/material/Rating";
 import Button from "@mui/material/Button";
 
 import TextField from "@mui/material/TextField";
-import customer from "../../../assets/images/Customer/customer.jpg";
-import customer1 from "../../../assets/images/Customer/customer1.jpg";
-import customer2 from "../../../assets/images/Customer/customer2.jpg";
-import customer3 from "../../../assets/images/Customer/customer3.jpg";
-import customer4 from "../../../assets/images/Customer/customer4.jpg";
-import ProductDetailsComponent from "../../ProductDetailsComponent";
+import customer from "../../assets/images/Customer/customer.jpg";
+import customer1 from "../../assets/images/Customer/customer1.jpg";
+import customer2 from "../../assets/images/Customer/customer2.jpg";
+import customer3 from "../../assets/images/Customer/customer3.jpg";
+import customer4 from "../../assets/images/Customer/customer4.jpg";
+import ProductDetailsComponent from "../../components/ProductDetailsComponent";
 
 const ProductDetails = () => {
   const [activeTab, setActiveTab] = useState(0);
