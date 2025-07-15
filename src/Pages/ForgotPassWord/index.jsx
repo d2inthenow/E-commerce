@@ -2,15 +2,72 @@ import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { MyContext } from "../../App";
 import { useContext } from "react";
+import { CircularProgress } from "@mui/material";
+import { postData } from "../../utils/api";
 const ForgotPassWord = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [isShowPassword2, setIsShowPassword2] = useState(false);
+  const [formFields, setFormFields] = useState({
+    email: localStorage.getItem("userEmail"),
+    newPassword: "",
+    confirmPassword: "",
+  });
 
   const context = useContext(MyContext);
   const history = useNavigate();
+
+  const onChangeInput = (e) => {
+    const { name, value } = e.target;
+    setFormFields(() => {
+      return {
+        ...formFields,
+        [name]: value,
+      };
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setIsLoading(true);
+
+    if (formFields.newPassword === "") {
+      context.openAlertBox("error", "Please enter your password");
+      setIsLoading(false);
+      return false;
+    }
+    if (formFields.confirmPassword === "") {
+      context.openAlertBox("error", "Please enter your confirm password");
+      setIsLoading(false);
+      return false;
+    }
+    if (formFields.newPassword !== formFields.confirmPassword) {
+      context.openAlertBox(
+        "error",
+        "Password and confirm password do not match"
+      );
+      setIsLoading(false);
+      return false;
+    }
+
+    postData("/api/user/reset-password", formFields).then((res) => {
+      if (res?.error === false) {
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("actionType");
+        context.openAlertBox("success", res?.message);
+        history("/login");
+      } else {
+        context.openAlertBox("error", res?.message);
+      }
+      setIsLoading(false);
+    });
+  };
+
+  const valideValues = Object.values(formFields).every((el) => el);
 
   return (
     <section className="section !py-10">
@@ -19,7 +76,7 @@ const ForgotPassWord = () => {
           <h3 className="text-[18px] font-[600] text-black text-center">
             Forgot Password
           </h3>
-          <form action="" className="w-full !mt-5">
+          <form onSubmit={handleSubmit} className="w-full !mt-5">
             <div className="form-group w-full !mb-5 relative">
               <TextField
                 className="w-full"
@@ -27,7 +84,10 @@ const ForgotPassWord = () => {
                 id="new password"
                 label="New password"
                 variant="outlined"
-                name="email"
+                onChange={onChangeInput}
+                value={formFields.newPassword}
+                disabled={isLoading === true ? true : false}
+                name="newPassword"
               />
               <Button
                 className="!absolute top-[10px] right-[10px] z-50 !w-[35px] !h-[35px]
@@ -48,7 +108,10 @@ const ForgotPassWord = () => {
                 id="confirm_password"
                 label="Confirm Password"
                 variant="outlined"
-                name="password"
+                name="confirmPassword"
+                value={formFields.confirmPassword}
+                disabled={isLoading === true ? true : false}
+                onChange={onChangeInput}
               />
               <Button
                 className="!absolute top-[10px] right-[10px] z-50 !w-[35px] !h-[35px]
@@ -64,8 +127,16 @@ const ForgotPassWord = () => {
             </div>
 
             <div className="flex items-center w-full !mt-3 !mb-3">
-              <Button className="btn-org w-full !py-2  !text-[20px] ">
-                Change Password
+              <Button
+                type="submit"
+                disabled={!valideValues}
+                className="btn-org w-full !py-2  !text-[20px] "
+              >
+                {isLoading === true ? (
+                  <CircularProgress color="inherit" />
+                ) : (
+                  "Change Password"
+                )}
               </Button>
             </div>
           </form>

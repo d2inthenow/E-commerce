@@ -23,8 +23,26 @@ const Login = () => {
 
   const forgotPassword = () => {
     if (formFields.email === "") {
-      history("/verify");
-      context.openAlertBox("success", "OTP send to your email");
+      context.openAlertBox("error", "Please enter your email");
+      return false;
+    } else {
+      localStorage.setItem("userEmail", formFields.email);
+      localStorage.setItem("actionType", "forgot-password");
+      context.openAlertBox(
+        "success",
+        "Please check your email for OTP verification"
+      );
+
+      postData("/api/user/forgot-password", {
+        email: formFields.email,
+      }).then((res) => {
+        if (res?.error === false) {
+          context.openAlertBox("success", res?.message);
+          history("/verify");
+        } else {
+          context.openAlertBox("error", res?.message);
+        }
+      });
     }
   };
 
@@ -62,11 +80,6 @@ const Login = () => {
         } else {
           context.openAlertBox("success", res?.message);
 
-          setFormFields({
-            email: "",
-            password: "",
-          });
-
           localStorage.setItem("refreshtoken", res?.data?.refreshtoken);
           localStorage.setItem("accesstoken", res?.data?.accesstoken);
 
@@ -79,6 +92,7 @@ const Login = () => {
   };
 
   const valideValues = Object.values(formFields).every((el) => el);
+
   return (
     <section className="section !py-10">
       <div className="container">

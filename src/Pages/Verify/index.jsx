@@ -16,18 +16,33 @@ const Verify = () => {
   const verifyOTP = (e) => {
     e.preventDefault();
 
-    postData("/api/user/verifyEmail", {
-      email: localStorage.getItem("userEmail"),
-      otp: otp,
-    }).then((res) => {
-      if (res?.error === false) {
-        context.openAlertBox("success", res?.message);
-        localStorage.removeItem("userEmail");
-        history("/login");
-      } else {
-        context.openAlertBox("error", res?.message);
-      }
-    });
+    const actionType = localStorage.getItem("actionType");
+
+    if (actionType !== "forgot-password") {
+      postData("/api/user/verifyEmail", {
+        email: localStorage.getItem("userEmail"),
+        otp: otp,
+      }).then((res) => {
+        if (res?.error === false) {
+          context.openAlertBox("success", res?.message);
+          history("/login");
+        } else {
+          context.openAlertBox("error", res?.message);
+        }
+      });
+    } else {
+      postData("/api/user/verify-forgot-password-otp", {
+        email: localStorage.getItem("userEmail"),
+        otp: otp,
+      }).then((res) => {
+        if (res?.error === false) {
+          context.openAlertBox("success", res?.message);
+          history("/forgot-password");
+        } else {
+          context.openAlertBox("error", res?.message);
+        }
+      });
+    }
   };
   return (
     <section className="section !py-10">
