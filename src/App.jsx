@@ -24,6 +24,8 @@ import Checkout from "./Pages/Checkout";
 import MyAccount from "./Pages/MyAccount";
 import MyList from "./Pages/MyList";
 import Orders from "./Pages/Orders";
+import { useEffect } from "react";
+import { fetchDataFromApi } from "./utils/api";
 
 const MyContext = createContext();
 
@@ -31,6 +33,8 @@ function App() {
   const [openProductDetailsModal, setOpenProductDetailsModal] = useState(false);
   const [fullWidth, setFullWidth] = useState(true);
   const [maxWidth, setMaxWidth] = useState("lg");
+
+  const [userData, setUserData] = useState(null);
 
   // Open Cart Panel
   const [openCartPanel, setOpenCartPanel] = useState(false);
@@ -49,6 +53,21 @@ function App() {
     setOpenProductDetailsModal(false);
   };
 
+  useEffect(() => {
+    const token = localStorage.getItem("accesstoken");
+
+    if (token !== null && token !== undefined && token !== "") {
+      setIsLogin(true);
+
+      fetchDataFromApi(`/api/user/user-details?token=${token}`).then((res) => {
+        console.log(res);
+        setUserData(res.data);
+      });
+    } else {
+      setIsLogin(false);
+    }
+  }, [isLogin]);
+
   const openAlertBox = (status, msg) => {
     if (status === "success") {
       toast.success(msg);
@@ -66,6 +85,8 @@ function App() {
     openAlertBox,
     isLogin,
     setIsLogin,
+    setUserData,
+    userData,
   };
   return (
     <>

@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { useState } from "react";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
@@ -7,14 +7,18 @@ import { FaFacebook } from "react-icons/fa6";
 import { FcGoogle } from "react-icons/fc";
 import { MyContext } from "../../App";
 import { useContext } from "react";
+import { postData } from "../../utils/api";
+import CircularProgress from "@mui/material/CircularProgress";
+
 const Login = () => {
-  const context = useContext(MyContext);
+  const [isLoading, setIsLoading] = useState(false);
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [formFields, setFormFields] = useState({
     email: "",
     password: "",
   });
 
+  const context = useContext(MyContext);
   const history = useNavigate();
 
   const forgotPassword = () => {
@@ -23,6 +27,58 @@ const Login = () => {
       context.openAlertBox("success", "OTP send to your email");
     }
   };
+
+  const onChangeInput = (e) => {
+    const { name, value } = e.target;
+    setFormFields(() => {
+      return {
+        ...formFields,
+        [name]: value,
+      };
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setIsLoading(true);
+
+    if (formFields.email === "") {
+      context.openAlertBox("error", "Please enter your email");
+      setIsLoading(false);
+      return false;
+    }
+    if (formFields.password === "") {
+      context.openAlertBox("error", "Please enter your password");
+      setIsLoading(false);
+      return false;
+    }
+
+    postData("/api/user/login", formFields, { withCredentials: true }).then(
+      (res) => {
+        console.log(res);
+        if (res?.error === true) {
+          context.openAlertBox("error", res?.message);
+        } else {
+          context.openAlertBox("success", res?.message);
+
+          setFormFields({
+            email: "",
+            password: "",
+          });
+
+          localStorage.setItem("refreshtoken", res?.data?.refreshtoken);
+          localStorage.setItem("accesstoken", res?.data?.accesstoken);
+
+          history("/");
+          context.setIsLogin(true);
+        }
+        setIsLoading(false);
+      }
+    );
+  };
+
+  const valideValues = Object.values(formFields).every((el) => el);
   return (
     <section className="section !py-10">
       <div className="container">
@@ -30,7 +86,7 @@ const Login = () => {
           <h3 className="text-[18px] font-[600] text-black text-center">
             Login to your account
           </h3>
-          <form action="" className="w-full !mt-5">
+          <form onSubmit={handleSubmit} className="w-full !mt-5">
             <div className="form-group w-full !mb-5">
               <TextField
                 className="w-full"
@@ -39,6 +95,9 @@ const Login = () => {
                 label="Email"
                 variant="outlined"
                 name="email"
+                value={formFields.email}
+                disabled={isLoading === true ? true : false}
+                onChange={onChangeInput}
               />
             </div>
             <div className="form-group w-full !mb-5 relative">
@@ -49,6 +108,9 @@ const Login = () => {
                 label="Password"
                 variant="outlined"
                 name="password"
+                disabled={isLoading === true ? true : false}
+                value={formFields.password}
+                onChange={onChangeInput}
               />
               <Button
                 className="!absolute top-[10px] right-[10px] z-50 !w-[35px] !h-[35px]
@@ -70,8 +132,16 @@ const Login = () => {
             </a>
 
             <div className="flex items-center w-full !mt-3 !mb-3">
-              <Button className="btn-org w-full !py-2  !text-[20px] ">
-                LOGIN
+              <Button
+                type="submit"
+                disabled={!valideValues}
+                className="btn-lg btn-org w-full flex gap-3"
+              >
+                {isLoading === true ? (
+                  <CircularProgress color="inherit" />
+                ) : (
+                  "Login"
+                )}
               </Button>
             </div>
 

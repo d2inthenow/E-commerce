@@ -71,6 +71,8 @@ const Register = () => {
       setIsLoading(false);
     });
   };
+
+  const valideValues = Object.values(formFields).every((el) => el);
   return (
     <section className="section !py-10">
       <div className="container">
@@ -134,7 +136,7 @@ const Register = () => {
             <div className="flex items-center w-full !mt-3 !mb-3">
               <Button
                 type="submit"
-                disabled={isLoading === true ? true : false}
+                disabled={!valideValues}
                 className="btn-lg btn-org w-full flex gap-3"
               >
                 {isLoading === true ? (

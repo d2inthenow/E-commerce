@@ -1,4 +1,4 @@
-import { React, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "/src/logoGam.png";
 import Search from "../Search/";
@@ -18,6 +18,7 @@ import { IoLogOut } from "react-icons/io5";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import { FaUser } from "react-icons/fa";
+import { fetchDataFromApi } from "../../utils/api";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   "& .MuiBadge-badge": {
@@ -35,9 +36,27 @@ const Header = () => {
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
+
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const logout = () => {
+    setAnchorEl(null);
+
+    fetchDataFromApi(
+      `/api/user/logout?token=${localStorage.getItem("accesstoken")}`,
+      { withCredentials: true }
+    ).then((res) => {
+      console.log(res);
+      if (res?.error === false) {
+        context.setIsLogin(false);
+        localStorage.removeItem("accesstoken");
+        localStorage.removeItem("refreshtoken");
+      }
+    });
+  };
+
   return (
     <header className="bg-white">
       <div className="top-strip py-2 border-t-[1px] border-gray-250 border-b-[1px]">
@@ -113,10 +132,10 @@ const Header = () => {
 
                     <div className="info flex flex-col ">
                       <h4 className="text-[14px] leading-3 font-[600] text-[rgba(0,0,0,0.6)] capitalize text-left justify-start !mb-0">
-                        Dong Duong dep trai
+                        {context.userData?.name}
                       </h4>
                       <span className="text-[13px] font-[500] text-[rgba(0,0,0,0.6)] capitalize text-left justify-start">
-                        duong0023@gmail.com
+                        {context.userData?.email}
                       </span>
                     </div>
                   </Button>
@@ -186,10 +205,7 @@ const Header = () => {
                       </MenuItem>
                     </Link>
                     <Link to="/">
-                      <MenuItem
-                        onClick={handleClose}
-                        className="flex gap-2 !py-2"
-                      >
+                      <MenuItem onClick={logout} className="flex gap-2 !py-2">
                         <IoLogOut className="text-[20px]" />
                         <span className="text-[14px]">Logout</span>
                       </MenuItem>
