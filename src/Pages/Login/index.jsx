@@ -74,7 +74,6 @@ const Login = () => {
 
     postData("/api/user/login", formFields, { withCredentials: true }).then(
       (res) => {
-        console.log(res);
         if (res?.error === true) {
           context.openAlertBox("error", res?.message);
         } else {

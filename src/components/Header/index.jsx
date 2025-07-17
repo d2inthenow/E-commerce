@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "/src/logoGam.png";
 import Search from "../Search/";
 import Badge from "@mui/material/Badge";
@@ -41,6 +41,8 @@ const Header = () => {
     setAnchorEl(null);
   };
 
+  const history = useNavigate();
+
   const logout = () => {
     setAnchorEl(null);
 
@@ -48,11 +50,11 @@ const Header = () => {
       `/api/user/logout?token=${localStorage.getItem("accesstoken")}`,
       { withCredentials: true }
     ).then((res) => {
-      console.log(res);
       if (res?.error === false) {
         context.setIsLogin(false);
         localStorage.removeItem("accesstoken");
         localStorage.removeItem("refreshtoken");
+        history("/");
       }
     });
   };

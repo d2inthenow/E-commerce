@@ -59,14 +59,26 @@ function App() {
     if (token !== null && token !== undefined && token !== "") {
       setIsLogin(true);
 
-      fetchDataFromApi(`/api/user/user-details?token=${token}`).then((res) => {
-        console.log(res);
+      fetchDataFromApi(`/api/user/user-details`).then((res) => {
         setUserData(res.data);
+
+        if (res?.response?.data?.error) {
+          if (res?.response?.data?.message === "jwt malformed") {
+            localStorage.removeItem("accesstoken");
+            localStorage.removeItem("refreshtoken");
+            setIsLogin(false);
+            openAlertBox(
+              "error",
+              "You session has expired, please login again"
+            );
+            history("/login");
+          }
+        }
       });
     } else {
       setIsLogin(false);
     }
-  }, [isLogin]);
+  }, []);
 
   const openAlertBox = (status, msg) => {
     if (status === "success") {
